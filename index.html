@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Dealership | Home</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body style="background-color: #2C2C2C;">
 
@@ -16,9 +20,11 @@
         <div class="navbar-links">
             <a href="index.html">Home</a>
             <a href="listings.html">Listings</a>
-            <a href="contact.html">Contact Us</a>
             <a href="register.html">Register</a>
             <a href="login.html">Log in</a>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">
+                Contact Us
+            </button>
         </div>
         <div class="nav-toggle" onclick="toggleNav()">☰</div>
     </nav>
@@ -71,47 +77,9 @@
                 </div>
             </div>
 
-            <!-- auto 4 -->
-            <div class="car-card">
-                <img src="/images/corsa.png" alt="Car 4">
-                <div class="card-content">
-                    <h3>Opel Corsa *MINT CONDITION*</h3>
-                    <p class="price">7,800KM</p>
-                    <p>Mileage: 226,000 Kilometers</p>
-                    <p>Year: 2008</p>
-                    <div class="fuel-type">
-                        <img src="images/gascap.png" alt="Fuel Icon"> Diesel
-                    </div>
-                </div>
-            </div>
 
-            <!-- auto 5 -->
-            <div class="car-card">
-                <img src="/images/c220.png" alt="Car 5">
-                <div class="card-content">
-                    <h3>Mercedes Benz C220 - AMG Optic</h3>
-                    <p class="price">14,000KM</p>
-                    <p>Mileage: 362,000 Kilometers</p>
-                    <p>Year: 2010</p>
-                    <div class="fuel-type">
-                        <img src="images/gascap.png" alt="Fuel Icon"> Diesel
-                    </div>
-                </div>
-            </div>
 
-            <!-- auto 6 -->
-            <div class="car-card">
-                <img src="/images/golf.png" alt="Car 6">
-                <div class="card-content">
-                    <h3>Golf 6</h3>
-                    <p class="price">11,000KM</p>
-                    <p>Mileage: 282,000 Kilometers</p>
-                    <p>Year: 2010</p>
-                    <div class="fuel-type">
-                        <img src="images/gascap.png" alt="Fuel Icon"> Diesel
-                    </div>
-                </div>
-            </div>
+
 
 
         </div>
@@ -144,7 +112,33 @@
     <p class="trust-badge">Certified Dealership</p>
 </footer>
 
+<!-- Contact Us Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title text-primary" id="contactModalLabel">Get in Touch</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Email:</strong> <a href="mailto:info@cardealership.com" class="text-info">info@cardealership.com</a></p>
+                <p><strong>Phone:</strong> +387 61 234 56789</p>
+                <p><strong>Address:</strong> 1234 Car Street, Auto City, ABC 12345</p>
+                <div class="d-flex gap-3 mt-3">
+                    <a href="https://facebook.com" target="_blank"><img src="images/facebook-icon.png" alt="Facebook" width="32"></a>
+                    <a href="https://twitter.com" target="_blank"><img src="images/twitter-icon.png" alt="Twitter" width="32"></a>
+                    <a href="https://instagram.com" target="_blank"><img src="images/instagram-icon.png" alt="Instagram" width="32"></a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="script.js"></script>
+
+<!-- Bootstrap JS Bundle CDN (required for modal functionality) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
