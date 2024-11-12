@@ -4,57 +4,37 @@
     box-sizing: border-box;
 }
 
+/* Navbar */
 .navbar {
     background-color: #333333;
-    color: #FFFFFF;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em 2em;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 10;
 }
 
-.navbar-logo a {
-    font-size: 35px;
-    font-weight: bold;
+.navbar a {
+    color: #FFFFFF !important;
+}
+
+.navbar a:hover {
+    color: #1E90FF !important;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-title {
     color: #1E90FF;
-    text-decoration: none;
-    transition: color 0.3s ease;
 }
 
-.navbar-logo a:hover {
-    color: #FFFFFF;
+.card-text {
+    color: #CCCCCC;
 }
 
-.navbar-links {
-    display: flex;
-    gap: 1.5em;
-}
-
-.navbar-links a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5em 1em;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.navbar-links a:hover {
+.btn-primary {
     background-color: #1E90FF;
-    color: #333333;
+    border: none;
 }
 
-.nav-toggle {
-    display: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: #FFFFFF;
+.btn-primary:hover {
+    background-color: #1573c2;
 }
 
 

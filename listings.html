@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Listings</title>
 
-    <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom Styles -->
     <style>
         body {
             background-color: #1D1D1D;
@@ -27,16 +25,6 @@
         .navbar a:hover {
             color: #1E90FF !important;
         }
-
-        /* Card Styles */
-        .card {
-            background-color: #2C2C2C;
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
-        }
-
         .card:hover {
             transform: translateY(-5px);
         }
@@ -74,6 +62,12 @@
         .footer a:hover {
             color: #FFFFFF;
         }
+
+        .car-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -91,6 +85,7 @@
                 <li class="nav-item"><a class="nav-link" href="listings.html">Listings</a></li>
                 <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
                 <li class="nav-item"><a class="nav-link" href="login.html">Log In</a></li>
+                <li class="nav-item"><a class="nav-link" href="find_us.html">Find Us</a></li>
                 <li class="nav-item">
                     <button type="button" class="btn btn-primary ms-lg-3" data-bs-toggle="modal" data-bs-target="#contactModal">
                         Contact Us
@@ -109,62 +104,58 @@
         <!-- Car Card 1 -->
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card h-100 bg-dark border-0 shadow">
-                <img src="/images/audis5.png" class="card-img-top" alt="Audi S5">
+                <img src="/images/audis5.png" class="card-img-top car-image" alt="Audi S5">
                 <div class="card-body">
                     <h5 class="card-title text-primary">Audi S5 2011</h5>
                     <p class="text-warning">Mileage: 164,000 Kilometers</p>
                     <p class="text-light">Fuel Type: <img src="images/gascap.png" alt="Fuel Icon" style="width: 18px; height: 18px;"> Petrol</p>
-                    <p class="card-text text-success">Price: $30,000</p>
+                    <p class="card-text text-success">Price: 30,000KM</p>
                     <a href="#" class="btn btn-primary w-100">View Details</a>
                 </div>
             </div>
         </div>
 
-
-        <!-- Opel Corsa -->
+        <!-- Car Card 2 -->
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card h-100 bg-dark border-0 shadow">
-                <img src="/images/corsa.png" class="card-img-top" alt="Opel Corsa">
+                <img src="/images/corsa.png" class="card-img-top car-image" alt="Opel Corsa">
                 <div class="card-body">
                     <h5 class="card-title text-primary">Opel Corsa</h5>
                     <p class="text-warning">Mileage: 226,000 Kilometers</p>
                     <p class="text-light">Fuel Type: <img src="images/gascap.png" alt="Fuel Icon" style="width: 18px; height: 18px;"> Diesel</p>
-                    <p class="card-text text-success">Price: 7,800 KM</p>
+                    <p class="card-text text-success">Price: 7,800KM</p>
                     <a href="#" class="btn btn-primary w-100">View Details</a>
                 </div>
             </div>
         </div>
 
-        <!-- Golf 6 -->
+        <!-- Car Card 3 -->
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card h-100 bg-dark border-0 shadow">
-                <img src="/images/golf.png" class="card-img-top" alt="Golf 6">
+                <img src="/images/golf.png" class="card-img-top car-image" alt="Golf 6">
                 <div class="card-body">
                     <h5 class="card-title text-primary">Golf 6</h5>
                     <p class="text-warning">Mileage: 282,000 Kilometers</p>
                     <p class="text-light">Fuel Type: <img src="images/gascap.png" alt="Fuel Icon" style="width: 18px; height: 18px;"> Diesel</p>
-                    <p class="card-text text-success">Price: 11,000 KM</p>
+                    <p class="card-text text-success">Price: 11,000KM</p>
                     <a href="#" class="btn btn-primary w-100">View Details</a>
                 </div>
             </div>
         </div>
 
-        <!-- Mercedes Benz C220 -->
+        <!-- Car Card 4 -->
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card h-100 bg-dark border-0 shadow">
-                <img src="/images/c220.png" class="card-img-top" alt="Mercedes Benz C220">
+                <img src="/images/c220.png" class="card-img-top car-image" alt="Mercedes Benz C220">
                 <div class="card-body">
-                    <h5 class="card-title text-primary">Mercedes Benz C220 - AMG Optic</h5>
+                    <h5 class="card-title text-primary">Mercedes Benz C220</h5>
                     <p class="text-warning">Mileage: 362,000 Kilometers</p>
                     <p class="text-light">Fuel Type: <img src="images/gascap.png" alt="Fuel Icon" style="width: 18px; height: 18px;"> Diesel</p>
-                    <p class="card-text text-success">Price: 14,000 KM</p>
+                    <p class="card-text text-success">Price: 14,000KM</p>
                     <a href="#" class="btn btn-primary w-100">View Details</a>
                 </div>
             </div>
         </div>
-
-
-
     </div>
 </div>
 

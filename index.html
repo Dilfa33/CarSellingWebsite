@@ -12,23 +12,29 @@
 </head>
 <body style="background-color: #2C2C2C;">
 
-<header>
-    <nav class="navbar">
-        <div class="navbar-logo">
-            <a href="index.html">Car Dealership</a>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Car Dealership</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="listings.html">Listings</a></li>
+                <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Log In</a></li>
+                <li class="nav-item"><a class="nav-link" href="find_us.html">Find Us</a></li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-primary ms-lg-3" data-bs-toggle="modal" data-bs-target="#contactModal">
+                        Contact Us
+                    </button>
+                </li>
+            </ul>
         </div>
-        <div class="navbar-links">
-            <a href="index.html">Home</a>
-            <a href="listings.html">Listings</a>
-            <a href="register.html">Register</a>
-            <a href="login.html">Log in</a>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">
-                Contact Us
-            </button>
-        </div>
-        <div class="nav-toggle" onclick="toggleNav()">☰</div>
-    </nav>
-</header>
+    </div>
+</nav>
 
 
 <!-- start of the main cars listings-->
@@ -123,7 +129,7 @@
             <div class="modal-body">
                 <p><strong>Email:</strong> <a href="mailto:info@cardealership.com" class="text-info">info@cardealership.com</a></p>
                 <p><strong>Phone:</strong> +387 61 234 56789</p>
-                <p><strong>Address:</strong> 1234 Car Street, Auto City, ABC 12345</p>
+                <p><strong>Address:</strong> 1234 Car Street</p>
                 <div class="d-flex gap-3 mt-3">
                     <a href="https://facebook.com" target="_blank"><img src="images/facebook-icon.png" alt="Facebook" width="32"></a>
                     <a href="https://twitter.com" target="_blank"><img src="images/twitter-icon.png" alt="Twitter" width="32"></a>
