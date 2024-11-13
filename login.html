@@ -11,21 +11,26 @@
     <div class="login-header">
         <h2>Welcome Back</h2>
     </div>
-    <form class="login-form">
+
+    <form class="login-form" id="loginForm" method="POST">
+        <!-- Username or Email -->
         <div class="form-group">
             <label for="username">Username or Email</label>
             <input type="text" id="username" name="username" required>
         </div>
+        <!-- Password -->
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required>
         </div>
+        <!-- Options: Remember Me & Forgot Password -->
         <div class="form-options">
             <label>
                 <input type="checkbox" name="remember"> Remember Me
             </label>
             <a href="#" class="forgot-password">Forgot Password?</a>
         </div>
+        <!-- Submit Button -->
         <button type="submit" class="login-btn">Login</button>
     </form>
     <div class="login-footer">
@@ -34,6 +39,39 @@
         <a href="index.html">Browse as a guest</a>
     </div>
 </div>
+
+<!-- JavaScript for Form Submission -->
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Collect form data
+        const loginData = {
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value
+        };
+
+        // Submit data to mock API using fetch
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(loginData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                alert('Login successful!');
+                console.log('Submitted data:', data);
+                // Optionally, redirect to another page upon successful login
+                window.location.href = 'index.html';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while logging in.');
+            });
+    });
+</script>
 
 </body>
 </html>
