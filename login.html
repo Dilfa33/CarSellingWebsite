@@ -12,7 +12,7 @@
         <h2>Welcome Back</h2>
     </div>
 
-    <form class="login-form" id="loginForm" method="POST">
+    <form class="login-form" id="loginForm" action="https://jsonplaceholder.typicode.com/posts" method="POST">
         <!-- Username or Email -->
         <div class="form-group">
             <label for="username">Username or Email</label>
@@ -40,38 +40,6 @@
     </div>
 </div>
 
-<!-- JavaScript for Form Submission -->
-<script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        // Collect form data
-        const loginData = {
-            username: document.getElementById('username').value,
-            password: document.getElementById('password').value
-        };
-
-        // Submit data to mock API using fetch
-        fetch('https://jsonplaceholder.typicode.com/posts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(loginData)
-        })
-            .then(response => response.json())
-            .then(data => {
-                alert('Login successful!');
-                console.log('Submitted data:', data);
-                // Optionally, redirect to another page upon successful login
-                window.location.href = 'index.html';
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred while logging in.');
-            });
-    });
-</script>
 
 </body>
 </html>
