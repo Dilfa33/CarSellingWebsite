@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Car Dealership</title>
+    <link rel="stylesheet" href="loginstyle.css">
+</head>
+<body class="login-page">
+<div class="login-container">
+    <div class="login-header">
+        <h2>Welcome Back</h2>
+    </div>
+
+    <form class="login-form" id="loginForm" action="https://jsonplaceholder.typicode.com/posts" method="POST">
+        <!-- Username or Email -->
+        <div class="form-group">
+            <label for="username">Username or Email</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <!-- Options: Remember Me & Forgot Password -->
+        <div class="form-options">
+            <label>
+                <input type="checkbox" name="remember"> Remember Me
+            </label>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+        <!-- Submit Button -->
+        <button type="submit" class="login-btn">Login</button>
+    </form>
+    <div class="login-footer">
+        <p>Don’t have an account? <a href="register.html">Sign Up</a></p>
+        <hr>
+        <a href="index.html">Browse as a guest</a>
+    </div>
+</div>
+
+
+</body>
+</html>
