@@ -5,6 +5,13 @@ const rules = {
     email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // Valid email format
 };
 
+// Password strength levels
+const strengthLevels = {
+    weak: "Weak",
+    moderate: "Moderate",
+    strong: "Strong",
+};
+
 // Validate a single field
 function validateField(id, value) {
     const rule = rules[id];
@@ -18,6 +25,33 @@ function toggleError(id, message) {
         errorElement.textContent = message || "";
     }
 }
+
+// Calculate password strength
+function calculatePasswordStrength(password) {
+    let strength = 0;
+    if (password.length >= 6) strength++; // Length check
+    if (/[A-Z]/.test(password)) strength++; // Uppercase letter
+    if (/[a-z]/.test(password)) strength++; // Lowercase letter
+    if (/[0-9]/.test(password)) strength++; // Numeric digit
+    if (/[@$!%*?&#]/.test(password)) strength++; // Special character
+
+    if (strength <= 2) return strengthLevels.weak;
+    if (strength <= 4) return strengthLevels.moderate;
+    return strengthLevels.strong;
+}
+
+// Update password strength display
+function updatePasswordStrength(password) {
+    const strengthText = calculatePasswordStrength(password);
+    const strengthElement = document.getElementById("passwordStrength");
+    strengthElement.textContent = `Strength: ${strengthText}`;
+    strengthElement.className = `password-strength ${strengthText.toLowerCase()}`;
+}
+
+// Add event listener for password input
+document.getElementById("password")?.addEventListener("input", (e) => {
+    updatePasswordStrength(e.target.value);
+});
 
 // Add event listener for form submission
 document.getElementById("registerForm")?.addEventListener("submit", async (e) => {
@@ -45,6 +79,15 @@ document.getElementById("registerForm")?.addEventListener("submit", async (e) =>
         toggleError("confirm-password", "");
     }
 
+    // Validate date of birth
+    const dob = document.getElementById("dob")?.value;
+    if (!dob) {
+        toggleError("dob", "Date of Birth is required");
+        isValid = false;
+    } else {
+        toggleError("dob", "");
+    }
+
     // If validation fails, do not proceed
     if (!isValid) return;
 
@@ -53,6 +96,7 @@ document.getElementById("registerForm")?.addEventListener("submit", async (e) =>
         username: document.getElementById("username")?.value,
         email: document.getElementById("email")?.value,
         password: document.getElementById("password")?.value,
+        dob: dob,
     };
 
     try {
@@ -73,7 +117,7 @@ document.getElementById("registerForm")?.addEventListener("submit", async (e) =>
             // Reset the form
             document.getElementById("registerForm").reset();
         } else {
-            new Error("Failed to submit form");
+            throw new Error("Failed to submit form");
         }
     } catch (error) {
         console.error("An error occurred:", error);

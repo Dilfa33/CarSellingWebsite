@@ -111,3 +111,23 @@ body {
 .footer-small a:hover {
     color: #FFF;
 }
+
+
+.password-strength {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.password-strength.weak {
+    color: red;
+}
+
+.password-strength.moderate {
+    color: orange;
+}
+
+.password-strength.strong {
+    color: green;
+}
