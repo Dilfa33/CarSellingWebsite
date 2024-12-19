@@ -9,37 +9,25 @@
 <body class="login-page">
 <div class="login-container">
     <div class="login-header">
-        <h2>Welcome Back</h2>
+        <h2>Log In</h2>
     </div>
-
     <form class="login-form" id="loginForm" action="https://jsonplaceholder.typicode.com/posts" method="POST">
-        <!-- Username or Email -->
         <div class="form-group">
-            <label for="username">Username or Email</label>
+            <label for="username">Username</label>
             <input type="text" id="username" name="username" required>
         </div>
-        <!-- Password -->
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" required minlength="6">
         </div>
-        <!-- Options: Remember Me & Forgot Password -->
-        <div class="form-options">
-            <label>
-                <input type="checkbox" name="remember"> Remember Me
-            </label>
-            <a href="#" class="forgot-password">Forgot Password?</a>
-        </div>
-        <!-- Submit Button -->
-        <button type="submit" class="login-btn">Login</button>
+        <button type="submit" class="login-btn">Log In</button>
     </form>
     <div class="login-footer">
-        <p>Don’t have an account? <a href="register.html">Sign Up</a></p>
+        <p>Don't have an account? <a href="register.html">Register</a></p>
         <hr>
         <a href="index.html">Browse as a guest</a>
     </div>
 </div>
-
-
+<script src="script.js"></script>
 </body>
 </html>

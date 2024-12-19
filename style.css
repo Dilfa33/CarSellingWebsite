@@ -238,3 +238,8 @@ body {
     color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+
+.error {
+    color: red; font-size: 0.9em;
+}

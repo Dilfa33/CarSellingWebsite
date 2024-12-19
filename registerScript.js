@@ -2,6 +2,7 @@
 const rules = {
     username: /^[a-zA-Z0-9]{3,16}$/, // Alphanumeric username, 3–16 characters
     password: /^.{6,}$/, // At least 6 characters
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // Valid email format
 };
 
 // Validate a single field
@@ -19,12 +20,12 @@ function toggleError(id, message) {
 }
 
 // Add event listener for form submission
-document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
+document.getElementById("registerForm")?.addEventListener("submit", async (e) => {
     e.preventDefault(); // Prevent default form submission
     let isValid = true;
 
     // Validate fields
-    ["username", "password"].forEach((id) => {
+    ["username", "email", "password"].forEach((id) => {
         const input = document.getElementById(id);
         if (!input || !validateField(id, input.value)) {
             toggleError(id, `Invalid ${id}`);
@@ -34,12 +35,23 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
         }
     });
 
+    // Validate password confirmation
+    const password = document.getElementById("password")?.value;
+    const confirmPassword = document.getElementById("confirm-password")?.value;
+    if (password !== confirmPassword) {
+        toggleError("confirm-password", "Passwords do not match");
+        isValid = false;
+    } else {
+        toggleError("confirm-password", "");
+    }
+
     // If validation fails, do not proceed
     if (!isValid) return;
 
     // Prepare form data
     const formData = {
         username: document.getElementById("username")?.value,
+        email: document.getElementById("email")?.value,
         password: document.getElementById("password")?.value,
     };
 
@@ -59,12 +71,12 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
             alert("Form submitted successfully! Your data has been saved.");
 
             // Reset the form
-            document.getElementById("loginForm").reset();
+            document.getElementById("registerForm").reset();
         } else {
-            new Error("Failed to log in");
+            new Error("Failed to submit form");
         }
     } catch (error) {
         console.error("An error occurred:", error);
-        alert("An error occurred while logging in.");
+        alert("An error occurred while submitting the form.");
     }
 });
