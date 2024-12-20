@@ -243,3 +243,27 @@ body {
 .error {
     color: red; font-size: 0.9em;
 }
+
+
+.toast {
+    background-color: #6c757d !important; /* Gray background */
+    color: white !important; /* White text */
+    border: 1px solid #dee2e6 !important; /* Light gray border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important; /* Subtle shadow */
+}
+
+.toast-success {
+    background-color: #28a745 !important; /* Optional green for success */
+}
+
+.toast-error {
+    background-color: #dc3545 !important; /* Optional red for error */
+}
+
+.toast-info {
+    background-color: #17a2b8 !important; /* Optional blue for info */
+}
+
+.toast-warning {
+    background-color: #ffc107 !important; /* Optional yellow for warnings */
+}

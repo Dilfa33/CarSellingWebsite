@@ -17,10 +17,6 @@ toastr.options = {
     hideMethod: "fadeOut"
 };
 
-// Test Toastr Notification
-window.onload = () => {
-    toastr.success("Toastr is successfully set up!");
-};
 
 // Validation rules
 const rules = {
