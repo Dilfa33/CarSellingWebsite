@@ -1,3 +1,27 @@
+// Configure toastr options
+toastr.options = {
+    closeButton: true,
+    debug: false,
+    newestOnTop: true,
+    progressBar: true,
+    positionClass: "toast-top-right",
+    preventDuplicates: true,
+    onclick: null,
+    showDuration: "300",
+    hideDuration: "1000",
+    timeOut: "5000",
+    extendedTimeOut: "1000",
+    showEasing: "swing",
+    hideEasing: "linear",
+    showMethod: "fadeIn",
+    hideMethod: "fadeOut"
+};
+
+// Test Toastr Notification
+window.onload = () => {
+    toastr.success("Toastr is successfully set up!");
+};
+
 // Validation rules
 const rules = {
     username: /^[a-zA-Z0-9]{3,16}$/, // Alphanumeric username, 3–16 characters
@@ -111,16 +135,15 @@ document.getElementById("registerForm")?.addEventListener("submit", async (e) =>
 
         if (response.ok) {
             const result = await response.json();
-            console.log("Form submitted successfully:", result);
-            alert("Form submitted successfully! Your data has been saved.");
+            toastr.success("Registration successful!");
 
             // Reset the form
             document.getElementById("registerForm").reset();
         } else {
-            throw new Error("Failed to submit form");
+            new Error("Failed to submit form");
+
         }
     } catch (error) {
-        console.error("An error occurred:", error);
-        alert("An error occurred while submitting the form.");
+        toastr.error("An error occurred while submitting the form.");
     }
 });

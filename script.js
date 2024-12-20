@@ -55,8 +55,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
 
         if (response.ok) {
             const result = await response.json();
-            console.log("Form submitted successfully:", result);
-            alert("Form submitted successfully! Your data has been saved.");
+            toastr.success("Registration successful!");
 
             // Reset the form
             document.getElementById("loginForm").reset();
@@ -64,7 +63,6 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
             new Error("Failed to log in");
         }
     } catch (error) {
-        console.error("An error occurred:", error);
-        alert("An error occurred while logging in.");
+        toastr.error("An error occurred while submitting the form.");
     }
 });
