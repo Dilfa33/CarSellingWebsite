@@ -236,8 +236,10 @@
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+
 }
+
+
 
 
 .error {
@@ -301,6 +303,17 @@ body {
     cursor: pointer;
     font-size: 1em;
 }
-#faq-toggle:hover {
-    background-color: var(--background-color);
+
+
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.news-card h5 {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
 }

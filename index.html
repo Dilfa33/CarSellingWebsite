@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Dealership | Home</title>
+    <script>
+        // Apply the saved theme immediately
+        (function () {
+            const savedTheme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+        })();
+    </script>
+    <script src="theme_switcher.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="theme_switcher.js" defer></script>
-
-    <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
@@ -46,6 +51,7 @@
         </div>
     </div>
 </nav>
+
 
 
 <!-- start of the main cars listings-->
@@ -104,18 +110,10 @@
 </div>
 
 
-<section class="upload-prompt">
-    <p><strong>Want to sell your car?</strong></p>
-    <p>Reach potential buyers by listing it here on our site!</p>
-    <a href="car_upload.html" class="upload-button">UPLOAD YOUR CAR!</a>
-</section>
-
-
-
 <div class="container my-5">
     <div class="row g-4">
         <div class="col-lg-8">
-            <div class="card shadow-lg">
+            <div class="card shadow-lg " style="background-color: var(--background-color); color: var(--text-color);">
                 <div class="card-header" style="background-color: var(--background-color); color: var(--text-color);">
                     <h3 class="mb-0">Employee Directory</h3>
                 </div>
@@ -156,26 +154,41 @@
 </div>
 
 
+<div class="container my-5">
+    <h1 class="text-center mb-4" style="color: var(--text-color);">Latest Car News</h1>
+    <div id="news-section" class="row g-4"></div>
+</div>
+
+
+
+<!-- accordion faq part-->
+<button id="faq-toggle">Show FAQ</button>
 <div class="faq-container" id="faq-section" style="display: none">
     <h1 style="color: var(--text-color);">Frequently Asked Questions</h1>
     <div class="faq-item">
-        <h2>What types of cars do you sell?</h2>
-        <p>We offer a wide range of vehicles including sedans, SUVs, trucks, and electric cars from top manufacturers.</p>
+        <h2 class="faq-header">What types of cars do you sell?</h2>
+        <p class="faq-content" style="display: none;">We offer a wide range of vehicles including sedans, SUVs, trucks, and electric cars from top manufacturers.</p>
     </div>
     <div class="faq-item">
-        <h2>Do you provide financing options?</h2>
-        <p>Yes, we offer flexible financing options to suit your budget. Our team will work with you to find the best plan.</p>
+        <h2 class="faq-header">Do you provide financing options?</h2>
+        <p class="faq-content" style="display: none;">Yes, we offer flexible financing options to suit your budget. Our team will work with you to find the best plan.</p>
     </div>
     <div class="faq-item">
-        <h2>Can I trade in my current car?</h2>
-        <p>Absolutely! We accept trade-ins and provide competitive offers based on the condition and market value of your car.</p>
+        <h2 class="faq-header">Can I trade in my current car?</h2>
+        <p class="faq-content" style="display: none;">Absolutely! We accept trade-ins and provide competitive offers based on the condition and market value of your car.</p>
     </div>
     <div class="faq-item">
-        <h2>Do you offer warranty on your vehicles?</h2>
-        <p>Yes, we provide warranties on both new and pre-owned vehicles. Specific terms depend on the car you purchase.</p>
+        <h2 class="faq-header">Do you offer warranty on your vehicles?</h2>
+        <p class="faq-content" style="display: none;">Yes, we provide warranties on both new and pre-owned vehicles. Specific terms depend on the car you purchase.</p>
+    </div>
+    <div class="faq-item">
+        <h2 class="faq-header">Still not satisfied?</h2>
+        <p class="faq-content" style="display: none;">
+            Click here to <a href="faq-page.html" style="color: var(--text-color); text-decoration: underline;">view more FAQs</a>.
+        </p>
     </div>
 </div>
-<button id="faq-toggle">Show FAQ</button>
+
 
 
 
@@ -228,5 +241,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="table_script.js"></script>
 <script src="FAQscript.js"></script>
+<script src="news.js"></script>
 </body>
 </html>

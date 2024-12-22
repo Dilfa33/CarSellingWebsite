@@ -1,4 +1,3 @@
-// Configure toastr options
 toastr.options = {
     closeButton: true,
     debug: false,
@@ -9,7 +8,7 @@ toastr.options = {
     onclick: null,
     showDuration: "300",
     hideDuration: "1000",
-    timeOut: "5000",
+    timeOut: "1500",
     extendedTimeOut: "1000",
     showEasing: "swing",
     hideEasing: "linear",
@@ -133,7 +132,9 @@ document.getElementById("registerForm")?.addEventListener("submit", async (e) =>
             const result = await response.json();
             toastr.success("Registration successful!");
 
-            // Reset the form
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1500);
             document.getElementById("registerForm").reset();
         } else {
             new Error("Failed to submit form");

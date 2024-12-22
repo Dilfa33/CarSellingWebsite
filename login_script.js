@@ -1,4 +1,21 @@
-// Validation rules
+toastr.options = {
+    closeButton: true,
+    debug: false,
+    newestOnTop: true,
+    progressBar: true,
+    positionClass: "toast-top-right",
+    preventDuplicates: true,
+    onclick: null,
+    showDuration: "300",
+    hideDuration: "1000",
+    timeOut: "1500",
+    extendedTimeOut: "1000",
+    showEasing: "swing",
+    hideEasing: "linear",
+    showMethod: "fadeIn",
+    hideMethod: "fadeOut"
+};
+
 const rules = {
     username: /^[a-zA-Z0-9]{3,16}$/, // Alphanumeric username, 3–16 characters
     password: /^.{6,}$/, // At least 6 characters
@@ -55,8 +72,12 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
 
         if (response.ok) {
             const result = await response.json();
-            toastr.success("Registration successful!");
+            toastr.success("Log in successful!");
 
+
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1500);
             // Reset the form
             document.getElementById("loginForm").reset();
         } else {
