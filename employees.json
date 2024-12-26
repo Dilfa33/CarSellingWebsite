@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Adnan Hajro",
+    "email": "adnan.hajro@ibu.edu.ba",
+    "phone": "+123 456 7890"
+  },
+  {
+    "id": 2,
+    "name": "Tarik Tufo 😈",
+    "email": "tarik.tufo@stu.ibu.edu.ba",
+    "phone": "+666 666 6666"
+  },
+  {
+    "id": 3,
+    "name": "Ajla Korman",
+    "email": "ajla.korman@ibu.edu.ba",
+    "phone": "+987 654 3210"
+  },
+  {
+    "id": 4,
+    "name": "Mirza Cakal",
+    "email": "mirza.cakal@stu.ibu.edu.ba",
+    "phone": "+999 321 1234"
+  },
+  {
+    "id": 5,
+    "name": "Amila Causevic",
+    "email": "amila.causevic@ibu.edu.ba",
+    "phone": "+555 123 4567"
+  },
+  {
+    "id": 6,
+    "name": "Tarik Hadrovic",
+    "email": "tarik.hadrovic@stu.ibu.edu.ba",
+    "phone": "+555 543 2456"
+  },
+  {
+    "id": 7,
+    "name": "Aziz Dzananovic",
+    "email": "azizdzananovic@fkn.unsa.ba",
+    "phone": "+654 991 4567"
+  },
+  {
+    "id": 8,
+    "name": "Abbas Merdan",
+    "email": "abbas.merdan@fsk.unsa.ba",
+    "phone": "+646 646 2008"
+  }
+]

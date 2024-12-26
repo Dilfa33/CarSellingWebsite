@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Dealership | Home</title>
+    <script>
+        // Apply the saved theme immediately
+        (function () {
+            const savedTheme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+        })();
+    </script>
+    <script src="theme_switcher.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="style.css">
-
-    <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
-<body style="background-color: #2C2C2C;">
+<body style="background-color: var(--background-color);">
+
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
@@ -25,16 +34,24 @@
                 <li class="nav-item"><a class="nav-link" href="listings.html">Listings</a></li>
                 <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
                 <li class="nav-item"><a class="nav-link" href="login.html">Log In</a></li>
-                <li class="nav-item"><a class="nav-link" href="find_us.html">Find Us</a></li>
                 <li class="nav-item">
                     <button type="button" class="btn btn-primary ms-lg-3" data-bs-toggle="modal" data-bs-target="#contactModal">
                         Contact Us
                     </button>
                 </li>
+                <li class="nav-item">
+                    <div class="form-check form-switch ms-lg-3 my-2 theme-switcher">
+                        <label class="form-check-label" style="color: var(--text-color);">
+                            <input class="form-check-input" type="checkbox" id="themeToggle">
+                            Dark Mode
+                        </label>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
 
 
 <!-- start of the main cars listings-->
@@ -93,97 +110,86 @@
 </div>
 
 
-<section class="upload-prompt">
-    <p><strong>Want to sell your car?</strong></p>
-    <p>Reach potential buyers by listing it here on our site!</p>
-    <a href="car_upload.html" class="upload-button">UPLOAD YOUR CAR!</a>
-</section>
-
-
-
 <div class="container my-5">
     <div class="row g-4">
         <div class="col-lg-8">
-            <div class="card shadow-lg custom-bg">
-                <div class="card-header bg-primary text-white">
+            <div class="card shadow-lg " style="background-color: var(--background-color); color: var(--text-color);">
+                <div class="card-header" style="background-color: var(--background-color); color: var(--text-color);">
                     <h3 class="mb-0">Employee Directory</h3>
                 </div>
-                <div class="card-body">
-                    <table class="table table-striped table-hover text-light-custom">
-                        <thead class="table-primary">
+                <div class="card-body" style="background-color: var(--background-color); color: var(--text-color);">
+                    <table class="table" style="background-color: var(--background-color); color: var(--text-color);">
+                        <thead class="table" style="background-color: var(--background-color); color: var(--text-color);">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Phone Number</th>
+                            <th scope="col">Actions</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Adnan Hajro</td>
-                            <td>adnan.hajro@ibu.edu.ba</td>
-                            <td>+123 456 7890</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Tarik Tufo 😈</td>
-                            <td>tarik.tufo@stu.ibu.edu.ba</td>
-                            <td>+666 666 6666</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Ajla Korman</td>
-                            <td>ajla.korman@ibu.edu.ba</td>
-                            <td>+987 654 3210</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Mirza Cakal</td>
-                            <td>mirza.cakal@stu.ibu.edu.ba</td>
-                            <td>+999 321 1234</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td>Amila Causevic</td>
-                            <td>amila.causevic@ibu.edu.ba</td>
-                            <td>+555 123 4567</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">6</th>
-                            <td>Tarik Hadrovic</td>
-                            <td>tarik.hadrovic@stu.ibu.edu.ba</td>
-                            <td>+555 543 2456</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">7</th>
-                            <td>Aziz Dzananovic</td>
-                            <td>azizdzananovic@fkn.unsa.ba</td>
-                            <td>+654 991 4567</td>
-                        </tr>
-                        </tbody>
+                        <tbody id="employee-table-body"></tbody>
+
                     </table>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-4">
-            <div class="card shadow-lg custom-bg">
-                <div class="card-header bg-success text-white">
+            <div class="card shadow-lg " style="background-color: var(--background-color); color: var(--text-color);">
+                <div class="card-header" style="background-color: var(--background-color); color: var(--text-color);">
                     <h3 class="mb-0">Employee of the Month</h3>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="background-color: var(--background-color); color: var(--text-color);">
                     <h4 class="text-primary">Ajla Korman</h4>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Exceeded sales targets by 425%</li>
-                        <li class="list-group-item">Received excellent customer feedback</li>
-                        <li class="list-group-item">Led a successful team project</li>
+                    <ul class="list-group list-group-flush" style="background-color: var(--background-color); color: var(--text-color);">
+                        <li class="list-group-item" style="background-color: var(--background-color); color: var(--text-color);">Exceeded sales targets by 425%</li>
+                        <li class="list-group-item" style="background-color: var(--background-color); color: var(--text-color);">Received excellent customer feedback</li>
+                        <li class="list-group-item" style="background-color: var(--background-color); color: var(--text-color);">Led a successful team project</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<div class="container my-5">
+    <h1 class="text-center mb-4" style="color: var(--text-color);">Latest Car News</h1>
+    <div id="news-section" class="row g-4"></div>
+</div>
+
+
+
+<!-- accordion faq part-->
+<button id="faq-toggle">Show FAQ</button>
+<div class="faq-container" id="faq-section" style="display: none">
+    <h1 style="color: var(--text-color);">Frequently Asked Questions</h1>
+    <div class="faq-item">
+        <h2 class="faq-header">What types of cars do you sell?</h2>
+        <p class="faq-content" style="display: none;">We offer a wide range of vehicles including sedans, SUVs, trucks, and electric cars from top manufacturers.</p>
+    </div>
+    <div class="faq-item">
+        <h2 class="faq-header">Do you provide financing options?</h2>
+        <p class="faq-content" style="display: none;">Yes, we offer flexible financing options to suit your budget. Our team will work with you to find the best plan.</p>
+    </div>
+    <div class="faq-item">
+        <h2 class="faq-header">Can I trade in my current car?</h2>
+        <p class="faq-content" style="display: none;">Absolutely! We accept trade-ins and provide competitive offers based on the condition and market value of your car.</p>
+    </div>
+    <div class="faq-item">
+        <h2 class="faq-header">Do you offer warranty on your vehicles?</h2>
+        <p class="faq-content" style="display: none;">Yes, we provide warranties on both new and pre-owned vehicles. Specific terms depend on the car you purchase.</p>
+    </div>
+    <div class="faq-item">
+        <h2 class="faq-header">Still not satisfied?</h2>
+        <p class="faq-content" style="display: none;">
+            Click here to <a href="faq-page.html" style="color: var(--text-color); text-decoration: underline;">view more FAQs</a>.
+        </p>
+    </div>
+</div>
+
+
 
 
 <footer class="footer">
@@ -232,5 +238,9 @@
 
 <!-- Bootstrap JS Bundle CDN (required for modal functionality) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="table_script.js"></script>
+<script src="FAQscript.js"></script>
+<script src="news.js"></script>
 </body>
 </html>

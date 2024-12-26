@@ -6,26 +6,26 @@
 
 /* Navbar */
 .navbar {
-    background-color: #333333;
+    background-color: var(--background-color)
 }
 
 .navbar a {
-    color: #FFFFFF !important;
+    color: var(--text-color); !important;
 }
 
 .navbar a:hover {
-    color: #1E90FF !important;
+    color: var(--text-color); !important;
 }
 .card:hover {
     transform: translateY(-5px);
 }
 
 .card-title {
-    color: #1E90FF;
+    color: var(--text-color);
 }
 
 .card-text {
-    color: #CCCCCC;
+    color: var(--text-color);
 }
 
 .btn-primary {
@@ -42,8 +42,8 @@
 /* start of the css for the main car listings*/
 
 .featured-bg {
-    background-color: #2C2C2C; /* Dark gray background to contrast with body */
-    padding: 60px 0; /* Adds space around the featured car section */
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .car-listing {
@@ -52,7 +52,8 @@
 }
 
 .car-listing h2 {
-    color: #1E90FF;
+    background-color: var(--background-color);
+    color: var(--text-color);
     margin-bottom: 20px;
         font-size: 60px;
 }
@@ -66,8 +67,8 @@
 }
 
 .car-card {
-    background-color: #444444;
-    color: #FFFFFF;
+    background-color: var(--background-color);
+    color: var(--text-color);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -90,7 +91,7 @@
 
 .card-content h3 {
     font-size: 30px;
-    color: #FFFFFF;
+    color: var(--text-color);
     margin-bottom: 8px;
 }
 
@@ -103,7 +104,7 @@
 
 .card-content p {
     font-size: 23px;
-    color: #CCCCCC;
+    color: var(--text-color);
     margin: 4px 0;
 }
 
@@ -111,7 +112,7 @@
     display: flex;
     align-items: center;
     font-size: 23px;
-    color: #FFFFFF;
+    color: var(--text-color);
     margin-top: 10px;
 }
 
@@ -139,8 +140,8 @@
 
 .upload-prompt {
     text-align: center;
-    background-color: #2C2C2C;
-    color: #FFFFFF;
+    background-color: var(--background-color);
+    color: var(--text-color);
     padding: 30px;
     margin: 40px 0;
     border-radius: 10px;
@@ -154,8 +155,8 @@
 
 .upload-button {
     display: inline-block;
-    background-color: #1E90FF;
-    color: #FFFFFF;
+    background-color: var(--background-color);
+    color: var(--text-color);
     font-size: 24px;
     font-weight: bold;
     padding: 15px 30px;
@@ -177,8 +178,8 @@
 
 
 .footer {
-    background-color: #333333;
-    color: #FFFFFF;
+    background-color: var(--background-color);
+    color: var(--text-color);
     text-align: center;
     padding: 33px;
     font-size: 23px;
@@ -217,6 +218,102 @@
 
 .trust-badge {
     font-weight: bold;
-    color: #1E90FF;
+    color: var(--text-color);
     font-size: 30px;
+}
+
+
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+}
+
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+}
+
+
+
+
+.error {
+    color: red; font-size: 0.9em;
+}
+
+
+.toast {
+    background-color: #6c757d !important; /* Gray background */
+    color: white !important; /* White text */
+    border: 1px solid #dee2e6 !important; /* Light gray border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important; /* Subtle shadow */
+}
+
+.toast-success {
+    background-color: #28a745 !important; /* Optional green for success */
+}
+
+.toast-error {
+    background-color: #dc3545 !important; /* Optional red for error */
+}
+
+.toast-info {
+    background-color: #17a2b8 !important; /* Optional blue for info */
+}
+
+.toast-warning {
+    background-color: #ffc107 !important; /* Optional yellow for warnings */
+}
+
+
+.faq-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.faq-item {
+    margin-bottom: 20px;
+}
+.faq-item h2 {
+    font-size: 1.5em;
+    color: var(--text-color);
+}
+.faq-item p {
+    margin: 10px 0 0;
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+#faq-toggle {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.news-card h5 {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
 }
