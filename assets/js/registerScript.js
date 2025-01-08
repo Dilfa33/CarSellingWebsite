@@ -133,7 +133,7 @@ document.getElementById("registerForm")?.addEventListener("submit", async (e) =>
             toastr.success("Registration successful!");
 
             setTimeout(() => {
-                window.location.href = "index.html";
+                window.location.href = "main.html";
             }, 1500);
             document.getElementById("registerForm").reset();
         } else {

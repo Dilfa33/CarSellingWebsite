@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let employeeData = [];
 
     // Fetch data from JSON file
-    fetch("employees.json")
+    fetch("../assets/json_files/employees.json")
         .then(response => response.json())
         .then(data => {
             employeeData = data;

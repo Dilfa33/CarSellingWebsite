@@ -76,7 +76,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
 
 
             setTimeout(() => {
-                window.location.href = "index.html";
+                window.location.href = "main.html";
             }, 1500);
             // Reset the form
             document.getElementById("loginForm").reset();
