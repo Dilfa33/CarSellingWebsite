@@ -1,3 +1,4 @@
+// Toastr notification settings
 toastr.options = {
     closeButton: true,
     debug: false,
@@ -5,42 +6,41 @@ toastr.options = {
     progressBar: true,
     positionClass: "toast-top-right",
     preventDuplicates: true,
-    onclick: null,
     showDuration: "300",
     hideDuration: "1000",
     timeOut: "1500",
     extendedTimeOut: "1000",
-    showEasing: "swing",
-    hideEasing: "linear",
     showMethod: "fadeIn",
     hideMethod: "fadeOut"
 };
 
+// Validation rules
 const rules = {
     username: /^[a-zA-Z0-9]{3,16}$/, // Alphanumeric username, 3–16 characters
-    password: /^.{6,}$/, // At least 6 characters
+    password: /^.{6,}$/ // Minimum 6 characters
 };
 
-// Validate a single field
 function validateField(id, value) {
-    const rule = rules[id];
-    return rule ? rule.test(value) : true; // If rule exists, validate; otherwise, always valid
+    return rules[id]?.test(value) ?? true;
 }
 
-// Show or clear error messages
 function toggleError(id, message) {
-    const errorElement = document.getElementById(`${id}Error`);
-    if (errorElement) {
-        errorElement.textContent = message || "";
-    }
+    document.getElementById(`${id}Error`).textContent = message || "";
 }
 
-// Add event listener for form submission
+// NE RADI AUTOFILL SA BROWSERA
+// RUCNO UNESITE PODATKE
+// ne znam ni ja?
 document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
+    const response = await fetch("assets/json_files/users.json");
+    const users = await response.json();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    console.log(users, username, password);
     let isValid = true;
 
-    // Validate fields
+    // Validate inputs
     ["username", "password"].forEach((id) => {
         const input = document.getElementById(id);
         if (!input || !validateField(id, input.value)) {
@@ -51,39 +51,27 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
         }
     });
 
-    // If validation fails, do not proceed
-    if (!isValid) return;
+    if (!isValid){
+        console.log("not valid");
+        return;
+    }
 
-    // Prepare form data
-    const formData = {
-        username: document.getElementById("username")?.value,
-        password: document.getElementById("password")?.value,
-    };
+
 
     try {
-        // Make async POST request
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        });
+        const userExists = users.some(user => user.username === username && user.password === password);
 
-        if (response.ok) {
-            const result = await response.json();
-            toastr.success("Log in successful!");
-
-
-            setTimeout(() => {
-                window.location.href = "main.html";
-            }, 1500);
-            // Reset the form
-            document.getElementById("loginForm").reset();
+        if (userExists) {
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("username", username);
+            toastr.success(`Welcome, ${username}!`);
+            document.getElementById("welcomeMessage").innerText = `Welcome, ${username}!`;
+            setTimeout(() => window.location.href = "#main", 750);
         } else {
-            new Error("Failed to log in");
+            toastr.error("Invalid username or password.");
         }
     } catch (error) {
-        toastr.error("An error occurred while submitting the form.");
+        toastr.error("An error occurred while logging in.");
     }
 });
+
