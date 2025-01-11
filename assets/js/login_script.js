@@ -66,6 +66,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
             localStorage.setItem("username", username);
             toastr.success(`Welcome, ${username}!`);
             document.getElementById("welcomeMessage").innerText = `Welcome, ${username}!`;
+            document.getElementById("logoutButton").style.display = "block";
             setTimeout(() => window.location.href = "#main", 750);
         } else {
             toastr.error("Invalid username or password.");
