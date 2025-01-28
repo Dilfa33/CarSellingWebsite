@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Log In</h2>
+        </div>
+        <form class="login-form" id="loginForm" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                <span id="usernameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required minlength="6">
+                <span id="passwordError"></span>
+            </div>
+            <button type="submit" class="login-btn">Log In</button>
+        </form>
+        <div class="login-footer">
+            <hr>
+            <a href="#main">Browse as a guest</a>
+        </div>
+    </div>
+</div>
+
